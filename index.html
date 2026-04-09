@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>おにぎり食べたね</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Tabs -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Matter.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div id="canvas-container"></div>
+
+    <div class="ui-container">
+        <!-- Input View (Main) -->
+        <section id="view-input" class="app-view active">
+            <header>
+                <h1>おにぎり食べたね <span id="total-onigiri">0</span></h1>
+                <p class="subtitle">今日もお疲れ様。おにぎりいくつ食べた？</p>
+            </header>
+
+            <div class="input-card glass">
+                <div class="input-group">
+                    <button id="btn-minus" class="count-btn">−</button>
+                    <input type="number" id="onigiri-input" value="1" min="1" max="50">
+                    <button id="btn-plus" class="count-btn">+</button>
+                </div>
+                <button id="btn-add" class="primary-btn">食べた！</button>
+            </div>
+
+            <div class="quick-footer">
+                <button id="btn-reset" class="secondary-btn">山をリセット</button>
+            </div>
+        </section>
+
+        <!-- History View -->
+        <section id="view-history" class="app-view">
+            <header>
+                <h2><i class="fas fa-history"></i> 食べた履歴</h2>
+            </header>
+            <div class="history-card glass">
+                <div id="history-list" class="history-list">
+                    <!-- History items injected here -->
+                    <p class="empty-msg">まだ記録がありません</p>
+                </div>
+            </div>
+            <div class="quick-footer">
+                <button id="btn-clear-history" class="danger-btn">全記録を消去</button>
+            </div>
+        </section>
+
+        <!-- Stats View -->
+        <section id="view-stats" class="app-view">
+            <header>
+                <h2><i class="fas fa-chart-bar"></i> 統計データ</h2>
+            </header>
+            <div class="chart-card glass">
+                <canvas id="monthly-chart"></canvas>
+            </div>
+            <div class="stats-summary glass">
+                <div class="summary-item">
+                    <span class="label">今月の合計</span>
+                    <span id="current-month-total" class="value">0</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tab Navigation -->
+        <nav class="tab-nav glass">
+            <button class="tab-item active" data-view="view-input">
+                <i class="fas fa-utensils"></i>
+                <span>食べる</span>
+            </button>
+            <button class="tab-item" data-view="view-history">
+                <i class="fas fa-list-ul"></i>
+                <span>履歴</span>
+            </button>
+            <button class="tab-item" data-view="view-stats">
+                <i class="fas fa-chart-line"></i>
+                <span>データ</span>
+            </button>
+        </nav>
+    </div>
+
+    <!-- Notification -->
+    <div id="toast" class="toast hidden"></div>
+
+    <script src="assets.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
