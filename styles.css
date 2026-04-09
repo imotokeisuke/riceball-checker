@@ -339,7 +339,20 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 .toast.hidden { opacity: 0; transform: translate(-50%, 20px); pointer-events: none; }
 
 @media (max-width: 480px) {
-    .ui-container { padding-top: 1rem; }
-    h1 { font-size: 1.5rem; }
+    .ui-container { 
+        padding-top: 5rem; 
+        width: 95%;
+    }
+    .tab-nav {
+        top: 0.5rem;
+        padding: 0.4rem 1rem;
+    }
+    .brand-count { font-size: 1.4rem; }
+    .brand-emoji { font-size: 1.2rem; }
+    .tab-item { width: 40px; height: 40px; }
+    .tab-item i { font-size: 1rem; }
+    
     .input-card { padding: 1.25rem; }
+    .count-btn { width: 40px; height: 40px; font-size: 1.2rem; }
+    input[type="number"] { font-size: 1.6rem; width: 60px; }
 }
