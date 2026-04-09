@@ -20,28 +20,33 @@
     <div id="canvas-container"></div>
 
     <div class="ui-container">
-        <!-- Tab Navigation -->
+        <!-- Unified Navigation Bar -->
         <nav class="tab-nav glass">
-            <button class="tab-item active" data-view="view-input">
-                <i class="fas fa-utensils"></i>
-                <span>食べる</span>
-            </button>
-            <button class="tab-item" data-view="view-history">
-                <i class="fas fa-list-ul"></i>
-                <span>履歴</span>
-            </button>
-            <button class="tab-item" data-view="view-stats">
-                <i class="fas fa-chart-line"></i>
-                <span>データ</span>
-            </button>
+            <div class="nav-brand">
+                <span class="brand-emoji">🍙</span>
+                <span id="total-onigiri" class="brand-count">0</span>
+            </div>
+            <div class="nav-links">
+                <button class="tab-item active" data-view="view-input">
+                    <i class="fas fa-utensils"></i>
+                    <span>食べる</span>
+                </button>
+                <button class="tab-item" data-view="view-history">
+                    <i class="fas fa-history"></i>
+                    <span>履歴</span>
+                </button>
+                <button class="tab-item" data-view="view-stats">
+                    <i class="fas fa-chart-line"></i>
+                    <span>データ</span>
+                </button>
+            </div>
         </nav>
 
         <!-- Input View (Main) -->
         <section id="view-input" class="app-view active">
-            <header>
-                <h1>おにぎり食べたね <span id="total-onigiri">0</span></h1>
+            <div class="view-header">
                 <p class="subtitle">今日もお疲れ様。おにぎりいくつ食べた？</p>
-            </header>
+            </div>
 
             <div class="input-card glass">
                 <div class="input-group">
@@ -59,9 +64,9 @@
 
         <!-- History View -->
         <section id="view-history" class="app-view">
-            <header>
-                <h2><i class="fas fa-history"></i> 食べた履歴</h2>
-            </header>
+            <div class="view-header">
+                <h2>食べた履歴</h2>
+            </div>
             <div class="history-card glass">
                 <div id="history-list" class="history-list">
                     <!-- History items injected here -->
@@ -75,9 +80,9 @@
 
         <!-- Stats View -->
         <section id="view-stats" class="app-view">
-            <header>
-                <h2><i class="fas fa-chart-bar"></i> 統計データ</h2>
-            </header>
+            <div class="view-header">
+                <h2>統計データ</h2>
+            </div>
             <div class="chart-card glass">
                 <canvas id="monthly-chart"></canvas>
             </div>
@@ -88,7 +93,6 @@
                 </div>
             </div>
         </section>
-
     </div>
 
     <!-- Notification -->
