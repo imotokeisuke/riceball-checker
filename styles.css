@@ -35,6 +35,17 @@ body {
     pointer-events: auto; /* Allow interaction with canvas */
 }
 
+.ground-line {
+    position: fixed;
+    bottom: 60px;
+    left: 5%;
+    right: 5%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(93, 64, 55, 0.2) 20%, rgba(93, 64, 55, 0.2) 80%, transparent);
+    z-index: 2;
+    pointer-events: none;
+}
+
 .ui-container {
     position: fixed;
     top: 0;

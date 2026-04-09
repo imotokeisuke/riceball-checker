@@ -192,9 +192,18 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         console.log('  境界壁を作成中...');
-        ground = Bodies.rectangle(window.innerWidth / 2, window.innerHeight + 30, window.innerWidth, 60, { isStatic: true });
-        wallLeft = Bodies.rectangle(-30, window.innerHeight / 2, 60, window.innerHeight, { isStatic: true });
-        wallRight = Bodies.rectangle(window.innerWidth + 30, window.innerHeight / 2, 60, window.innerHeight, { isStatic: true });
+        ground = Bodies.rectangle(window.innerWidth / 2, window.innerHeight - 30, window.innerWidth, 60, { 
+            isStatic: true,
+            render: { visible: false } 
+        });
+        wallLeft = Bodies.rectangle(-30, window.innerHeight / 2, 60, window.innerHeight, { 
+            isStatic: true,
+            render: { visible: false }
+        });
+        wallRight = Bodies.rectangle(window.innerWidth + 30, window.innerHeight / 2, 60, window.innerHeight, { 
+            isStatic: true,
+            render: { visible: false }
+        });
 
         Composite.add(engine.world, [ground, wallLeft, wallRight]);
 
@@ -406,4 +415,19 @@ document.addEventListener('DOMContentLoaded', function() {
         toast.classList.remove('hidden');
         setTimeout(() => toast.classList.add('hidden'), 3000);
     }
+
+    // --- Responsive Adjustments ---
+    window.addEventListener('resize', () => {
+        if (!render || !render.canvas || !ground || !wallLeft || !wallRight) return;
+        
+        render.canvas.width = window.innerWidth;
+        render.canvas.height = window.innerHeight;
+        render.options.width = window.innerWidth;
+        render.options.height = window.innerHeight;
+
+        // Reposition boundaries
+        Matter.Body.setPosition(ground, { x: window.innerWidth / 2, y: window.innerHeight - 30 });
+        Matter.Body.setPosition(wallLeft, { x: -30, y: window.innerHeight / 2 });
+        Matter.Body.setPosition(wallRight, { x: window.innerWidth + 30, y: window.innerHeight / 2 });
+    });
 });
