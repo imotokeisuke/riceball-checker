@@ -20,6 +20,22 @@
     <div id="canvas-container"></div>
 
     <div class="ui-container">
+        <!-- Tab Navigation -->
+        <nav class="tab-nav glass">
+            <button class="tab-item active" data-view="view-input">
+                <i class="fas fa-utensils"></i>
+                <span>食べる</span>
+            </button>
+            <button class="tab-item" data-view="view-history">
+                <i class="fas fa-list-ul"></i>
+                <span>履歴</span>
+            </button>
+            <button class="tab-item" data-view="view-stats">
+                <i class="fas fa-chart-line"></i>
+                <span>データ</span>
+            </button>
+        </nav>
+
         <!-- Input View (Main) -->
         <section id="view-input" class="app-view active">
             <header>
@@ -73,21 +89,6 @@
             </div>
         </section>
 
-        <!-- Tab Navigation -->
-        <nav class="tab-nav glass">
-            <button class="tab-item active" data-view="view-input">
-                <i class="fas fa-utensils"></i>
-                <span>食べる</span>
-            </button>
-            <button class="tab-item" data-view="view-history">
-                <i class="fas fa-list-ul"></i>
-                <span>履歴</span>
-            </button>
-            <button class="tab-item" data-view="view-stats">
-                <i class="fas fa-chart-line"></i>
-                <span>データ</span>
-            </button>
-        </nav>
     </div>
 
     <!-- Notification -->
